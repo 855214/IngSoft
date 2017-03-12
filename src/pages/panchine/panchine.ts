@@ -4,10 +4,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import {DataService} from "../../app/shared/services/data.service";
 
 @Component({
-  selector: 'page-page2',
-  templateUrl: 'page2.html',
+  selector: 'page-panchine',
+  templateUrl: 'panchine.html',
 })
-export class Page2 {
+export class Panchine {
   selectedItem: any;
   puntiInteresse:any[]=[];
 
@@ -27,7 +27,7 @@ export class Page2 {
   }
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Page2, {
+    this.navCtrl.push(Panchine, {
       item: item
     });
   }

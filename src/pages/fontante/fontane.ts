@@ -4,10 +4,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import {DataService} from "../../app/shared/services/data.service";
 
 @Component({
-  selector: 'page-page2',
-  templateUrl: 'page2.html',
+  selector: 'page-fontane',
+  templateUrl: 'fontane.html',
 })
-export class Page2 {
+export class Fontane {
   selectedItem: any;
   puntiInteresse:any[]=[];
 
@@ -17,7 +17,7 @@ export class Page2 {
 
   }
   ionViewWillEnter(){
-    this.data.db.child('/puntiInteresse').orderByChild("type").equalTo("panchine").on('value', data => {
+    this.data.db.child('/puntiInteresse').orderByChild("type").equalTo("fontane").on('value', data => {
       //Needed since firebase is returning an object and not an array
       let retObj=data.val();
       this.puntiInteresse=(Object.keys(retObj).map(key => retObj[key])
@@ -27,7 +27,7 @@ export class Page2 {
   }
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Page2, {
+    this.navCtrl.push(Fontane, {
       item: item
     });
   }

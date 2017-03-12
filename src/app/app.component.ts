@@ -4,10 +4,15 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import {DataService} from "./shared/services/data.service";
+import {Picnic} from "../pages/picnic/picnic";
+import {Panchine} from "../pages/panchine/panchine";
+import {Fontane} from "../pages/fontante/fontane";
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+    providers: [DataService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -16,18 +21,22 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,private data:DataService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Page Two', component: Page2 },
+      { title: 'Picnic', component: Picnic },
+      { title: 'Panchine', component: Panchine },
+      { title: 'Fontane', component: Fontane }
     ];
 
   }
 
   initializeApp() {
+    this.data.init();
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
