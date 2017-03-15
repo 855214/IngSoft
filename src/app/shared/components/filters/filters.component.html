@@ -1,0 +1,41 @@
+<ion-toolbar>
+    <ion-title>Modals</ion-title>
+    <ion-buttons end>
+        <button ion-button danger (click)="dismiss()">
+            Close
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+<ion-content padding>
+
+    <div class="selection">
+                <h2 class="card-title">
+                    Tipologie
+                </h2>
+        <ion-item *ngFor="let type of filters.availabletypes">
+            <ion-label>{{type}}</ion-label>
+            <ion-checkbox [checked]="filters.contains(type)" (ionChange)="toggleType($event,type)"></ion-checkbox>
+        </ion-item>
+
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button secondary (click)="updateChanges()">
+                        <ion-icon name="star"></ion-icon>
+                        Favorite
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button secondary (click)="updateChanges()">
+                        <ion-icon name="thumbs-up"></ion-icon>
+                        Like
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button secondary (click)="updateChanges()">
+                        <ion-icon name="share-alt"></ion-icon>
+                        Share
+                    </button>
+                </ion-col>
+            </ion-row>
+    </div>
+</ion-content>

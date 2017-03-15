@@ -3,11 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page Two</ion-title>
+    <ion-title>Esplora</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <button end ion-button secondary (click)="showFilters()">Filter</button>
   <ion-list>
     <button ion-item *ngFor="let item of puntiInteresse" (click)="itemTapped($event, item)">
       ( {{item.type}} )
